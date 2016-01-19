@@ -12,3 +12,38 @@ var triangle = function(A, B, C) {
     return true;
   }
 };
+
+$(document).ready(function(){
+  $("form#triangle-form").submit(function(event) {
+    var A = parseInt($("input#sideA").val());
+    var B = parseInt($("input#sideB").val());
+    var C = parseInt($("input#sideC").val());
+    var result = triangle(A, B, C);
+
+    $("#result").hide();
+    $("#error").hide();
+
+    if (isNaN(A, B, C)) {
+      $("#error").show();
+    }
+    else if (!result) {
+      $("#result").show();
+      $(".not").text("not a ");
+    }
+    else if (A === B && B === C) {
+      $("#result").show();
+      $(".triangleType").text("an equilateral ");
+    }
+    else if (A === B || B === C || A === C) {
+      $("#result").show();
+      $(".triangleType").text("an isosceles ");
+    }
+
+    else {
+      $("#result").show();
+      $(".triangleType").text("a scalene ");
+    }
+
+    event.preventDefault();
+  });
+});
