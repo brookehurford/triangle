@@ -28,19 +28,25 @@ $(document).ready(function(){
     }
     else if (!result) {
       $("#result").show();
+      $(".triangleType").hide();
       $(".not").text("not a ");
     }
     else if (A === B && B === C) {
       $("#result").show();
+      $(".triangleType").show();
+      $(".not").text("");
       $(".triangleType").text("an equilateral ");
     }
     else if (A === B || B === C || A === C) {
       $("#result").show();
+      $(".triangleType").show();
+      $(".not").text("");
       $(".triangleType").text("an isosceles ");
     }
-
     else {
       $("#result").show();
+      $(".triangleType").show();
+      $(".not").text("");
       $(".triangleType").text("a scalene ");
     }
 
